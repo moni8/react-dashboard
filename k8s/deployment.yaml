@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-dashboard-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: react-dashboard
+  template:
+    metadata:
+      labels:
+        app: react-dashboard
+    spec:
+      containers:
+        - name: react-dashboard
+          image: madocker77/react-dashboard:v1
+          ports:
+            - containerPort: 80
